@@ -45,7 +45,7 @@ module Resque
 
         def load_config(filename)
           return {} unless filename
-          YAML.load(ERB.new(IO.read(filename)).result)
+          YAML.load(ERB.new(IO.read(filename)).result, aliases: true)
         end
 
         CONFIG_FILES = ["resque-pool.yml", "config/resque-pool.yml"]
